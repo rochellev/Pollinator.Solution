@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Pollinator.Models.Quiz;
+
+<h2>Quiz Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@* @if(@Model.Questions.Count == 0)
+{
+  <p>Something went wrong.</p>
+}
+*@
+
+
+if
+{
+  <h4>Questions the quiz contains:</h4>
+  <ul>
+  @foreach(var join in Model.Questions)
+  {
+    <li>@join.Question.Description</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to (your) quizzes", "Index")</p>
+<p>@Html.ActionLink("Edit Quiz", "Edit", new { id = Model.QuizId })</p>
+<p>@Html.ActionLink("Delete Quiz", "Delete", new { id = Model.QuizId })</p>
