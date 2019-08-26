@@ -28,7 +28,11 @@ $ dotnet run
 ```
 
 ## User Stories
+* There is only one site admin.
+* The admin can view and modify any poll so that the site can be managed.
 * A registered user can create a new poll so other users can take it.
-* A registered user can view all their polls they have created so they can manage their quizzes.
-* A user can view the results of a poll so they can know how the poll turned out.
-* The admin can view and modify any poll so that the site can be managed.  
+* A registered user can view all the polls they have created so they can manage their quizzes.
+* Any user can view the results of a poll so they can know how the poll turned out.
+* A registered user can only vote once per poll so that the poll results are fair.
+* Poll results are shown graphically to make results more interesting.
+* Poll results cannot be altered by any user.
