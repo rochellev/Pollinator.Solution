@@ -1,15 +1,16 @@
-using System.ComponetModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 namespace Pollinator.ViewModels
+{
 public class RegisterViewModel
 {
     [Required]
     [EmailAddress]
-    [Display(nameof = "Email")]
+    [Display(Name = "Email")]
     public string Email {get; set;}
     [Required]
     [DataType(DataType.Password)]
-    [Display(nameof = "Password")]
-    public string Password {get; set}
+    [Display(Name = "Password")]
+    public string Password {get; set;}
     [DataType(DataType.Password)]
     [Display(Name = "Confirm password")]
     [Compare("Password", ErrorMessage = "The password and confirmation do not match")]
