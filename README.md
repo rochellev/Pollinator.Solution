@@ -9,9 +9,11 @@
 * C#
 * .NET
 * ASP.NET Core MVC
-* HTML
 * Entity Framework
 * MySQL
+* HTML
+* CSS
+* Bootstrap
 
 ## Installation
 * Follow steps below
