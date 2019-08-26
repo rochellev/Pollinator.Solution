@@ -16,7 +16,7 @@ namespace Pollinator.Controllers
 
         public ActionResult Index()
         {
-            // List<Quiz> model = _db.Quizzes.ToList();
+            List<Quiz> model = _db.Quizzes.ToList();
             return View();
         }
 
@@ -40,6 +40,33 @@ namespace Pollinator.Controllers
                 .ThenInclude(join => join.Question)
                 .FirstOrDefault(quiz => quiz.QuizId == id);
             return View(thisQuiz);
+        }
+        public ActionResult Edit(int id)
+        {
+            var thisQuiz = _db.Quizzes.FirstOrDefault(quiz => quiz.QuizId == id);
+            return View(thisQuiz);
+        }
+        [HttpPost]
+        public ActionResult Edit(Quiz quiz)
+        {
+            _db.Entry(quiz).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var thisQuiz = _db.Quizzes.FirstOrDefault(quiz => quiz.QuizId == id);
+            return View(thisQuiz);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var thisQuiz = _db.Quizzes.FirstOrDefault(quiz => quiz.QuizId == id);
+            _db.Quizzes.Remove(thisQuiz);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
