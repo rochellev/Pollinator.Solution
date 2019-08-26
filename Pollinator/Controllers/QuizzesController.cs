@@ -16,8 +16,8 @@ namespace Pollinator.Controllers
 
         public ActionResult Index()
         {
-            List<Quiz> model = _db.Quizzes.ToList();
-            return View(model);
+            // List<Quiz> model = _db.Quizzes.ToList();
+            return View();
         }
 
         public ActionResult Create()
