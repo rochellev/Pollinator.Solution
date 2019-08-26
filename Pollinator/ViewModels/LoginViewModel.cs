@@ -6,6 +6,4 @@ namespace Pollinator.ViewModels
         public string Password { get; set; }
 
     }
-
-
 }
