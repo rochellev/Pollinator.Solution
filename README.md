@@ -3,7 +3,7 @@
 ----
 
 ## Description
-* Pollinator is an ASP .NET Core MVC app designed to make creating polls fun and easy.
+* Pollinator is a Web App allowing users to create and take polls.
 
 ## Technologies Used
 * C#
