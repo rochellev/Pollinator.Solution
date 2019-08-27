@@ -3,5 +3,18 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">View Quizzes</h1>
+    <h1 class="display-4">Active Quizzes</h1>
+
 </div>
+@model Pollinator.Models.Quiz;
+
+@*
+@foreach (Quiz quiz in Model)
+{
+  <li>@Html.ActionLink($"{quiz.Name}", "Details", new { id = quiz.QuizId })</li>
+}
+*@
+
+<p>@Html.ActionLink("Create a quiz", "Create")</p>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

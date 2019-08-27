@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Pollinator.Models.Quiz
+
+<h2>Edit</h2>
+
+<h4>Edit this quiz: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.QuizId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
+    @Html.LabelFor(model => model.Questions)
+    @Html.EditorFor(model => model.Questions)
+
+    <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to categories", "Index")</p>
