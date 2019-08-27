@@ -24,8 +24,6 @@ namespace Pollinator.Controllers
 
         public async Task<ActionResult> Index()
         {
-            // List<Quiz> model = _db.Quizzes.ToList();
-            // return View();
             var currentUser = await GetApplicationUser();
             return View (_db.Quizzes.Where(x => x.User.Id == currentUser.Id).ToList());
         }

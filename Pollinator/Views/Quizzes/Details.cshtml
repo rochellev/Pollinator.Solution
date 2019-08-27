@@ -3,30 +3,25 @@
 }
 
 @model Pollinator.Models.Quiz;
+<div class="text-center">
+    <h1 class="display-4">Poll Details</h1>
+</div>
 
-<h2>Quiz Details</h2>
-<hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<hr/>
+<div class="container">
+  <h2>@Model.Name</h2>
+  <h4>@Model.Description</h4>
+  <h4>@Model.QuestionText</h4>
+  <h4>@Model.AnswerA or @Model.AnswerB</h4>
+</div>
+<br>
 
-@* @if(@Model.Questions.Count == 0)
-{
-  <p>Something went wrong.</p>
-}
-*@
+<div class="container">
+<h2>Results:</h2>
+</div>
 
 
-if
-{
-  <h4>Questions the quiz contains:</h4>
-  <ul>
-    @*
-  @foreach(var join in Model.Questions)
-  {
-    <li>@join.Question.Description</li>
-  }
-  </ul>
-}
-*@
+  
 
 <p>@Html.ActionLink("Back to (your) quizzes", "Index")</p>
 <p>@Html.ActionLink("Edit Quiz", "Edit", new { id = Model.QuizId })</p>
