@@ -39,5 +39,8 @@ $ dotnet run
 * Poll results cannot be altered by any user.
 
 
-## Bugs
-* rochelle - the quiz details page not implemented, moving on to response controller
+## Things to Think about
+* a page to see All polls
+    * right now it's just the current user's polls
+
+* 

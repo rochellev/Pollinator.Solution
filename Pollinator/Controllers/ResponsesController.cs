@@ -34,11 +34,11 @@ namespace Pollinator.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(Quiz quiz)
+        public async Task<ActionResult> Create(Response response, int id)
         {
             var currentUser = await GetApplicationUser();
-            quiz.User = currentUser;
-            _db.Quizzes.Add(quiz);
+            response.User = currentUser;
+            _db.Responses.Add(response);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
