@@ -45,3 +45,13 @@ $ dotnet run
 * Poll details page
     * needs better styling
     * add response info
+* Poll creation page
+    * require all the fields, not sure if that is implemented right now
+* Response Index
+    * not currently implemented (tuesday)
+    * could be a user's history of their poll answers
+    * only see their responses
+    * admin see all users responses
+* Response Creation
+    * 
+* Hosting ;)
