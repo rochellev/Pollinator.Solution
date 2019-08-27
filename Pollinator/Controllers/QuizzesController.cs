@@ -33,14 +33,14 @@ namespace Pollinator.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Details(int id)
-        {
-            var thisQuiz = _db.Quizzes
-                .Include(quiz => quiz.Questions)
-                .ThenInclude(join => join.Question)
-                .FirstOrDefault(quiz => quiz.QuizId == id);
-            return View(thisQuiz);
-        }
+        // public ActionResult Details(int id)
+        // {
+        //     var thisQuiz = _db.Quizzes
+        //         .Include(quiz => quiz.QuestionText)
+        //         .ThenInclude(quiz =>)
+        //         .FirstOrDefault(quiz => quiz.QuizId == id);
+        //     return View(thisQuiz);
+        // }
         public ActionResult Edit(int id)
         {
             var thisQuiz = _db.Quizzes.FirstOrDefault(quiz => quiz.QuizId == id);

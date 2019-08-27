@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pollinator.Models;
 
 namespace Pollinator.Migrations
 {
     [DbContext(typeof(PollinatorContext))]
-    partial class PollinatorContextModelSnapshot : ModelSnapshot
+    [Migration("20190827172945_RemoveQuestion")]
+    partial class RemoveQuestion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

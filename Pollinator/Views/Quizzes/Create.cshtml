@@ -9,7 +9,7 @@
 </div>
 <br>
 
-<div class="container centerForm">
+<div class="container formAlign">
 @using (Html.BeginForm())
 {   
     <label for="Name">Poll Name</label>
@@ -20,6 +20,8 @@
     <br>
     <input id="Description" name="Description" type="text" class="pollInput">
     <br>
+    <label for="QuestionText">Question Text</label>
+    <input id="QuestionText" name="QuestionText" type="text" class="pollInput">
     <input type="submit" value="Create Quiz">
 }
 </div>
