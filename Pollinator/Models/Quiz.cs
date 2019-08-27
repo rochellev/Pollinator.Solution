@@ -10,5 +10,6 @@ namespace Pollinator.Models
         public string QuestionText {get;set;}
         public string AnswerA {get; set;}
         public string AnswerB {get; set;}
+        public virtual ApplicationUser User {get; set;}
     }
 }
