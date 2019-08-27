@@ -9,22 +9,27 @@
 
 <hr/>
 <div class="container">
-  <h2>@Model.Name</h2>
-  <h4>@Model.Description</h4>
-  <h4>@Model.QuestionText</h4>
-  <h4>@Model.AnswerA or @Model.AnswerB</h4>
+<div class="card border-info mb-3" style="max-width: 18rem;">
+  <div class="card-header">@Model.Name</div>
+  <div class="card-body text-info">
+    <h5 class="card-title">@Model.QuestionText</h5>
+    <div class="card-text">
+      @using (Html.BeginForm())
+      {
+        <label>@Model.AnswerA</label>
+        <input id="AnswerA" name="AnswerA" type="radio" class="pollInput">
+        <label>@Model.AnswerB</label>
+        <input id="AnswerB" name="AnswerB" type="radio" class="pollInput">
+      }
+    </div>
+  </div>
 </div>
-<br>
 
 <div class="container">
 <h2>Results:</h2>
 </div>
 
 <p>@Html.ActionLink("Take this Poll!", "Create", "Responses")</p>
-
-
-  
-
 <p>@Html.ActionLink("Back to (your) quizzes", "Index")</p>
 <p>@Html.ActionLink("Edit Quiz", "Edit", new { id = Model.QuizId })</p>
 <p>@Html.ActionLink("Delete Quiz", "Delete", new { id = Model.QuizId })</p>
