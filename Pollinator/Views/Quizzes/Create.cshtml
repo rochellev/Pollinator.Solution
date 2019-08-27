@@ -1,16 +1,21 @@
 @{
-  Layout = "_Layout";
+    ViewData["Title"] = "Poll Creator";
 }
 
 @model Pollinator.Models.Quiz
 
-<h4>Create a quiz</h4>
+<div class="text-center">
+    <h1 class="display-4">Poll Creator</h1>
+</div>
+
+<div class="container">
 @using (Html.BeginForm())
-{
-    @Html.LabelFor(model => model.Name)
-    @Html.TextBoxFor(model => model.Name)
+{   
+    <label for="Name">Poll Name</label>
+    <input id="Name" name="Name" type="text" class="pollInput">
     @Html.LabelFor(model => model.Description)
     @Html.TextBoxFor(model => model.Description)
     <input type="submit" value="Create Quiz" />
 }
+</div>
 <p>@Html.ActionLink("Show all (of your?) quizzes", "Index")</p> 
