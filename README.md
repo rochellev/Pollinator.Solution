@@ -37,3 +37,11 @@ $ dotnet run
 * A registered user can only vote once per poll so that the poll results are fair.
 * Poll results are shown graphically to make results more interesting.
 * Poll results cannot be altered by any user.
+
+
+## Things to Think about/do
+* a page to see All polls
+    * right now it's just the current user's polls
+* Poll details page
+    * needs better styling
+    * add response info

@@ -12,11 +12,11 @@ using Pollinator.Models;
 namespace Pollinator.Controllers
 {
     [Authorize]
-    public class QuizzesController : Controller
+    public class ResponsesController : Controller
     {
         private readonly PollinatorContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
-        public QuizzesController(UserManager<ApplicationUser> userManager, PollinatorContext db)
+        public ResponsesController(UserManager<ApplicationUser> userManager, PollinatorContext db)
         {
             _userManager = userManager;
             _db = db;
@@ -34,23 +34,23 @@ namespace Pollinator.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(Quiz quiz)
+        public async Task<ActionResult> Create(Response response, int id)
         {
             var currentUser = await GetApplicationUser();
-            quiz.User = currentUser;
-            _db.Quizzes.Add(quiz);
+            response.User = currentUser;
+            _db.Responses.Add(response);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        public ActionResult Details(int id)
-        {
-            var thisQuiz = _db.Quizzes
-                .Include(quiz => quiz.Responses)
-                .ThenInclude(join => join.Response)
-                .FirstOrDefault(quiz => quiz.QuizId == id);
-            return View(thisQuiz);
-        }
+        // public ActionResult Details(int id)
+        // {
+        //     var thisQuiz = _db.Quizzes
+        //         .Include(quiz => quiz.QuestionText)
+        //         .ThenInclude(quiz =>)
+        //         .FirstOrDefault(quiz => quiz.QuizId == id);
+        //     return View(thisQuiz);
+        // }
         public ActionResult Edit(int id)
         {
             var thisQuiz = _db.Quizzes.FirstOrDefault(quiz => quiz.QuizId == id);
