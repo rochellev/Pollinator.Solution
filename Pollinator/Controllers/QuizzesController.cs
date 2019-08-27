@@ -45,17 +45,6 @@ namespace Pollinator.Controllers
             return RedirectToAction("Index");
         }
 
-<<<<<<< HEAD
-        public ActionResult Details(int id)
-        {
-            //strict check
-            var thisQuiz = _db.Quizzes
-                .Include(quiz => quiz.Questions)
-                .ThenInclude(join => join.Question)
-                .FirstOrDefault(quiz => quiz.QuizId == id);
-            return View(thisQuiz);
-        }
-=======
         // public ActionResult Details(int id)
         // {
         //     var thisQuiz = _db.Quizzes
@@ -64,7 +53,6 @@ namespace Pollinator.Controllers
         //         .FirstOrDefault(quiz => quiz.QuizId == id);
         //     return View(thisQuiz);
         // }
->>>>>>> eb2d6fa9c90b577951a3966370953e4ff3396b89
         public ActionResult Edit(int id)
         {
             var thisQuiz = _db.Quizzes.FirstOrDefault(quiz => quiz.QuizId == id);
