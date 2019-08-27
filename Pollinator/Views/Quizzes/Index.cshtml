@@ -9,12 +9,12 @@
 @using Pollinator.Models
 @model  List<Pollinator.Models.Quiz>;
 
-@*
+
 @foreach (Quiz quiz in Model)
 {
   <li>@Html.ActionLink($"{quiz.Name}", "Details", new { id = quiz.QuizId })</li>
 }
-*@
+
 
 <p>@Html.ActionLink("Create a quiz", "Create")</p>
 
