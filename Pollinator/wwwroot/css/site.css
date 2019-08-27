@@ -7,6 +7,14 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+nav {
+  background-color: #a9d4e7;
+}
+
+#nav-login {
+  text-align: right;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -19,10 +27,10 @@ html {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #e3f4fb;
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e3f4fb;
 }
 
 .box-shadow {
@@ -55,6 +63,26 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+
+/* Sticky body styles
+-------------------------------------------------- */
+
+ body {
+  background-color: #e3f4fb;
+}
+
+main {
+  font-family: 'Varela Round', sans-serif;
+}
+
+h3#home-intro {
+  border: black, 2px;
+}
+.nav-link:hover {
+text-shadow: -1px 0 white, 0 -1px white;
+opacity: 0.5;
+ }
+
 /* Poll creator form */
 .formAlign {
   text-align: center;
@@ -63,4 +91,4 @@ body {
   border: 0;
   outline: 0;
   border-bottom: 2px solid gray;
-}
+
