@@ -7,11 +7,8 @@ namespace Pollinator.Models
         public string Name {get; set;}
         public string Description {get; set;}
         public int AuthorId {get; set;}
-        public virtual ICollection<QuizQuestion> Questions {get;set;}
-
-        public Quiz()
-        {
-            this.Questions = new HashSet<QuizQuestion>();
-        }
+        public string QuestionText {get;set;}
+        public string AnswerA {get; set;}
+        public string AnswerB {get; set;}
     }
 }
