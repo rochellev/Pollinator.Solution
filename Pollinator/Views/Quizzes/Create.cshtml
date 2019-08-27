@@ -7,15 +7,20 @@
 <div class="text-center">
     <h1 class="display-4">Poll Creator</h1>
 </div>
+<br>
 
-<div class="container">
+<div class="container centerForm">
 @using (Html.BeginForm())
 {   
     <label for="Name">Poll Name</label>
+    <br>
     <input id="Name" name="Name" type="text" class="pollInput">
-    @Html.LabelFor(model => model.Description)
-    @Html.TextBoxFor(model => model.Description)
-    <input type="submit" value="Create Quiz" />
+    <br>
+    <label for="Description">Poll Description</label>
+    <br>
+    <input id="Description" name="Description" type="text" class="pollInput">
+    <br>
+    <input type="submit" value="Create Quiz">
 }
 </div>
 <p>@Html.ActionLink("Show all (of your?) quizzes", "Index")</p> 
