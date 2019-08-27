@@ -39,8 +39,9 @@ $ dotnet run
 * Poll results cannot be altered by any user.
 
 
-## Things to Think about
+## Things to Think about/do
 * a page to see All polls
     * right now it's just the current user's polls
-
-* 
+* Poll details page
+    * needs better styling
+    * add response info
