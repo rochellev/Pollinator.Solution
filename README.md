@@ -53,5 +53,7 @@ $ dotnet run
     * only see their responses
     * admin see all users responses
 * Response Creation
-    * 
+    * think
 * Hosting ;)
+* About us page
+    * link in navbar
