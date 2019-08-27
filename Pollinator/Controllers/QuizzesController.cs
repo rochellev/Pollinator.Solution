@@ -1,46 +1,58 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Pollinator.Models;
 
+
 namespace Pollinator.Controllers
 {
+    [Authorize]
     public class QuizzesController : Controller
     {
         private readonly PollinatorContext _db;
-        public QuizzesController(PollinatorContext db)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public QuizzesController(UserManager<ApplicationUser> userManager, PollinatorContext db)
         {
+            _userManager = userManager;
             _db = db;
         }
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            List<Quiz> model = _db.Quizzes.ToList();
-            return View();
+            // List<Quiz> model = _db.Quizzes.ToList();
+            // return View();
+            var currentUser = await GetApplicationUser();
+            return View (_db.Quizzes.Where(x => x.User.Id == currentUser.Id).ToList());
         }
 
-        public ActionResult Create()
+        public  ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(Quiz quiz)
+        public async Task<ActionResult> Create(Quiz quiz)
         {
+            var currentUser = await GetApplicationUser();
+            quiz.User = currentUser;
             _db.Quizzes.Add(quiz);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        public ActionResult Details(int id)
-        {
-            var thisQuiz = _db.Quizzes
-                .Include(quiz => quiz.Questions)
-                .ThenInclude(join => join.Question)
-                .FirstOrDefault(quiz => quiz.QuizId == id);
-            return View(thisQuiz);
-        }
+        // public ActionResult Details(int id)
+        // {
+        //     var thisQuiz = _db.Quizzes
+        //         .Include(quiz => quiz.QuestionText)
+        //         .ThenInclude(quiz =>)
+        //         .FirstOrDefault(quiz => quiz.QuizId == id);
+        //     return View(thisQuiz);
+        // }
         public ActionResult Edit(int id)
         {
             var thisQuiz = _db.Quizzes.FirstOrDefault(quiz => quiz.QuizId == id);
@@ -67,6 +79,12 @@ namespace Pollinator.Controllers
             _db.Quizzes.Remove(thisQuiz);
             _db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        private async Task<ApplicationUser> GetApplicationUser()
+        {
+            var userId = this.User.FindFirst (ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            return currentUser;
         }
     }
 }
