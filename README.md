@@ -37,3 +37,7 @@ $ dotnet run
 * A registered user can only vote once per poll so that the poll results are fair.
 * Poll results are shown graphically to make results more interesting.
 * Poll results cannot be altered by any user.
+
+
+## Bugs
+* rochelle - the quiz details page not implemented, moving on to response controller
