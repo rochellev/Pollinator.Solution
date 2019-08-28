@@ -55,7 +55,7 @@ $ dotnet run
     * only see their responses
     * admin see all users responses
 * Response Creation
-    * think
+    * in the list view of quizzes
 * Hosting ;)
 * About us page
     * link in navbar
