@@ -15,11 +15,22 @@
     <div id="chartContainer">
 
     </div>
+   
      <script type="text/javascript">
         window.onload = function () {
+
+             CanvasJS.addColorSet("customColorSet",
+                [//colorSet Array
+
+                "#000000",
+                "#f7e757",
+                "#f2b416", 
+
+                ]);
+
             var chart = new CanvasJS.Chart("chartContainer", {
                 backgroundColor: "#e3f4fb",
-                ColorSe“colorSet2”,
+                colorSet:  "customColorSet",
                 title: {
                     text: "Poll Results",
                     fontFamily: "Varela Round"
@@ -33,7 +44,7 @@
                 data: [
                 {
                     type: "doughnut",
-                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontFamily: "Varela Round",
                     indexLabelFontSize: 20,
                     indexLabel: "{label} {y}%",
                     startAngle: -20,
