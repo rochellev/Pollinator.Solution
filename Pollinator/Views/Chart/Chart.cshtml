@@ -1,0 +1,55 @@
+@{
+  Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+    <title>Chart</title>
+</head>
+<body>
+    <div id="chartContainer">
+
+    </div>
+     <script type="text/javascript">
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                backgroundColor: "#e3f4fb",
+                ColorSe“colorSet2”,
+                title: {
+                    text: "Poll Results",
+                    fontFamily: "Varela Round"
+                },
+                animationEnabled: true,
+                legend: {
+                    fontSize: 20,
+                    fontFamily: "Varela Round"
+                },
+                theme: "light2",
+                data: [
+                {
+                    type: "doughnut",
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontSize: 20,
+                    indexLabel: "{label} {y}%",
+                    startAngle: -20,
+                    showInLegend: true,
+                    toolTipContent: "{legendText} {y}%",
+                    dataPoints: [
+                        { y: 75, legendText: "Answer A", label: "Answer A" },
+                        { y: 25, legendText: "Answer B", label: "Answer B" }
+                    ],
+ 
+                    dataPoints: @Html.Raw(ViewBag.DataPoints)
+                }
+                ]
+            });
+            chart.render();
+        };
+    </script>
+</body>
+</html>
