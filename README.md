@@ -40,6 +40,9 @@ $ dotnet run
 * Poll results are shown graphically to make results more interesting.
 * Poll results cannot be altered by any user.
 
+## Data Relations
+* One-to-Many
+    * One quiz has many responses
 
 ## Things to Think about/do
 * a page to see All polls
