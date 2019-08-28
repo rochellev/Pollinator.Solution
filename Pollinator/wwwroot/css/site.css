@@ -83,6 +83,12 @@ text-shadow: -1px 0 white, 0 -1px white;
 opacity: 0.5;
  }
 
+ /* About Developers */
+
+ .card {
+   border: 2px, black;
+ }
+
 /* Poll creator form */
 .formAlign {
   text-align: center;
