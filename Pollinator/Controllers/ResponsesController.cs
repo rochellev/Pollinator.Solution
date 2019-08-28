@@ -38,7 +38,7 @@ namespace Pollinator.Controllers
         {
             var currentUser = await GetApplicationUser();
             response.User = currentUser;
-            Console.WriteLine(response.QuizId);
+            Console.WriteLine($"response.QuizId = {response.QuizId}");
             _db.Responses.Add(response);
             _db.SaveChanges();
             return RedirectToAction("Index", "Quizzes");

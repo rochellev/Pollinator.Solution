@@ -6,20 +6,20 @@ namespace Pollinator.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "UserId1",
-                table: "Responses",
-                nullable: true);
+            // migrationBuilder.AddColumn<string>(
+            //     name: "UserId1",
+            //     table: "Responses",
+            //     nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "UserId",
                 table: "Quizzes",
                 nullable: true);
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Responses_UserId1",
-                table: "Responses",
-                column: "UserId1");
+            // migrationBuilder.CreateIndex(
+            //     name: "IX_Responses_UserId1",
+            //     table: "Responses",
+            //     column: "UserId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Quizzes_UserId",
@@ -34,13 +34,13 @@ namespace Pollinator.Migrations
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_Responses_AspNetUsers_UserId1",
-                table: "Responses",
-                column: "UserId1",
-                principalTable: "AspNetUsers",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+            // migrationBuilder.AddForeignKey(
+            //     name: "FK_Responses_AspNetUsers_UserId1",
+            //     table: "Responses",
+            //     column: "UserId1",
+            //     principalTable: "AspNetUsers",
+            //     principalColumn: "Id",
+            //     onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
