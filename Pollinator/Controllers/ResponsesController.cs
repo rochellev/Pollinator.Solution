@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Pollinator.Models;
 using System;
+using System.Dynamic;
 
 namespace Pollinator.Controllers
 {
@@ -28,7 +29,7 @@ namespace Pollinator.Controllers
             return View (_db.Quizzes.Where(x => x.User.Id == currentUser.Id).ToList());
         }
 
-        // public  ActionResult Create()
+        // public  ActionResult Create(int id)
         // {
         //     return View();
         // }
@@ -36,9 +37,12 @@ namespace Pollinator.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(Response response)
         {
+            Console.WriteLine("hitting create response method");
             var currentUser = await GetApplicationUser();
             response.User = currentUser;
             Console.WriteLine($"response.QuizId = {response.QuizId}");
+            Console.WriteLine($"response chosen = {response.AnswerChoice}");
+            Console.WriteLine($"user id = {currentUser.UserName}");
             _db.Responses.Add(response);
             _db.SaveChanges();
             return RedirectToAction("Index", "Quizzes");

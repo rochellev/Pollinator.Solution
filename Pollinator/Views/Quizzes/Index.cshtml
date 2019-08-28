@@ -1,33 +1,34 @@
 @{
-    ViewData["Title"] = "Quiz Index";
+    ViewData["Title"] = "Poll Index";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Active Quizzes</h1>
+    <h1 class="display-4">Active Poll</h1>
 </div>
 
 @using Pollinator.Models
-@model  dynamic
+@model dynamic
 
 <div class="container">
 @foreach (Quiz quiz in Model.Quizzes)
 {
+    @using (Html.BeginForm("Create", "Responses", FormMethod.Post))
+    {
+    <input type="hidden" name="QuizId" value="@quiz.QuizId">
     <div class="card border-info mb-3" style="max-width: 18rem;">
     <div class="card-header">@quiz.QuestionText</div>
       <div class="card-body text-info">
       <h5 class="card-title"></h5>
       <div class="card-text">
-        @using (Html.BeginForm("Create", "Responses", FormMethod.Post))
-        {
           <label for="AnswerA">@quiz.AnswerA</label>
           <input id="AnswerA" name="AnswerChoice" type="radio" value="AnswerA" class="pollInput">
           <label for="AnswerB">@quiz.AnswerB</label>
           <input id="AnswerB" name="AnswerChoice" type="radio" value="AnswerB" class="pollInput">
-          <input type="submit" value="Submit!">
-        }
+         <input type="submit" value="submit">
     </div>
     </div>
     </div>
+    }
 }
  
 
