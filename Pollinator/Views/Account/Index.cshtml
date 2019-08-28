@@ -2,14 +2,14 @@
     Layout = "_Layout";
 }
 @using System.Security.Claims
-<h2>Authentication with Identity</h2>
+<h2>Your Account</h2>
 <hr/>
 @if (User.Identity.IsAuthenticated)
 {
     <p>Hello @User.Identity.Name!</p>
     @using (Html.BeginForm("LogOff", "Account"))
     {
-        <input type = "submit" class="btn btn-default" value="Log out"/>
+        <input type = "submit" class="btn btn-default btn-outline-custom" value="Log out"/>
     }
 }
 else
