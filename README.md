@@ -47,9 +47,7 @@ $ dotnet run
 ## Things to Think about/do
 * a page to see All polls
     * right now it's just the current user's polls
-* Poll details page
-    * needs better styling
-    * add response info
+    * user can take poll on this page
 * Poll creation page
     * require all the fields, not sure if that is implemented right now
 * Response Index

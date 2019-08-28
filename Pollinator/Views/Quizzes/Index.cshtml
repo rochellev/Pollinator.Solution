@@ -7,13 +7,29 @@
 </div>
 
 @using Pollinator.Models
-@model  List<Pollinator.Models.Quiz>;
+@model  dynamic
 
-
-@foreach (Quiz quiz in Model)
+<div class="container">
+@foreach (Quiz quiz in Model.Quizzes)
 {
-  <li>@Html.ActionLink($"{quiz.Name}", "Details", new { id = quiz.QuizId })</li>
+    <div class="card border-info mb-3" style="max-width: 18rem;">
+    <div class="card-header">@quiz.QuestionText</div>
+      <div class="card-body text-info">
+      <h5 class="card-title"></h5>
+      <div class="card-text">
+        @using (Html.BeginForm("Create", "Responses", FormMethod.Post))
+        {
+          <label for="AnswerA">@quiz.AnswerA</label>
+          <input id="AnswerA" name="AnswerChoice" type="radio" value="AnswerA" class="pollInput">
+          <label for="AnswerB">@quiz.AnswerB</label>
+          <input id="AnswerB" name="AnswerChoice" type="radio" value="AnswerB" class="pollInput">
+          <input type="submit" value="Submit!">
+        }
+    </div>
+    </div>
+    </div>
 }
+ 
 
 
 <p>@Html.ActionLink("Create a quiz", "Create")</p>

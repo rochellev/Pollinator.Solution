@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Dynamic;
 using Pollinator.Models;
 
 
@@ -25,7 +26,10 @@ namespace Pollinator.Controllers
         public async Task<ActionResult> Index()
         {
             var currentUser = await GetApplicationUser();
-            return View (_db.Quizzes.Where(x => x.User.Id == currentUser.Id).ToList());
+            dynamic myModel = new ExpandoObject();
+            myModel.Quizzes = _db.Quizzes;
+            myModel.Responses = _db.Responses.ToList();
+            return View (myModel);
         }
 
         public  ActionResult Create()
@@ -43,14 +47,14 @@ namespace Pollinator.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Details(int id)
-        {
-            var thisQuiz = _db.Quizzes
-                .Include(quiz => quiz.Responses)
-                .ThenInclude(join => join.Response)
-                .FirstOrDefault(quiz => quiz.QuizId == id);
-            return View(thisQuiz);
-        }
+        // public ActionResult Details(int id)
+        // {
+        //     var thisQuiz = _db.Quizzes
+        //         .Include(quiz => quiz.Responses)
+        //         .ThenInclude(join => join.Response)
+        //         .FirstOrDefault(quiz => quiz.QuizId == id);
+        //     return View(thisQuiz);
+        // }
         public ActionResult Edit(int id)
         {
             var thisQuiz = _db.Quizzes.FirstOrDefault(quiz => quiz.QuizId == id);
