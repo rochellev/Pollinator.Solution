@@ -24,6 +24,14 @@ nav {
   width: auto;
 }
 
+.btn-outline-custom {
+  border-color: #a9d4e7;
+  background-color: #a9d4e7;
+}
+
+.btn-outline-custom:hover {
+  background-color: white;
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */
