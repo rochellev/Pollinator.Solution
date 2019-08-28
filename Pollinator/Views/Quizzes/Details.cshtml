@@ -6,13 +6,13 @@
 <div class="text-center">
     <h1 class="display-4">Poll Details</h1>
 </div>
-
+@*
 <hr/>
 <div class="container">
 <div class="card border-info mb-3" style="max-width: 18rem;">
-  <div class="card-header">@Model.Name</div>
+  <div class="card-header">@Model.QuestionText</div>
   <div class="card-body text-info">
-    <h5 class="card-title">@Model.QuestionText</h5>
+    <h5 class="card-title"></h5>
     <div class="card-text">
       @using (Html.BeginForm())
       {
@@ -24,7 +24,7 @@
     </div>
   </div>
 </div>
-
+*@
 <div class="container">
 <h2>Results:</h2>
 </div>

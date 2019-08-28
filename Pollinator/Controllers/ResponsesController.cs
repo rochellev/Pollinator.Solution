@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Pollinator.Models;
-
+using System;
+using System.Dynamic;
 
 namespace Pollinator.Controllers
 {
@@ -28,20 +29,23 @@ namespace Pollinator.Controllers
             return View (_db.Quizzes.Where(x => x.User.Id == currentUser.Id).ToList());
         }
 
-        public  ActionResult Create()
-        {
-            
-            return View();
-        }
+        // public  ActionResult Create(int id)
+        // {
+        //     return View();
+        // }
 
         [HttpPost]
-        public async Task<ActionResult> Create(Response response, int id)
+        public async Task<ActionResult> Create(Response response)
         {
+            Console.WriteLine("hitting create response method");
             var currentUser = await GetApplicationUser();
             response.User = currentUser;
+            Console.WriteLine($"response.QuizId = {response.QuizId}");
+            Console.WriteLine($"response chosen = {response.AnswerChoice}");
+            Console.WriteLine($"user id = {currentUser.UserName}");
             _db.Responses.Add(response);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Quizzes");
         }
 
         // public ActionResult Details(int id)

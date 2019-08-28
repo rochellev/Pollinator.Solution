@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pollinator.Models;
 
 namespace Pollinator.Migrations
 {
     [DbContext(typeof(PollinatorContext))]
-    partial class PollinatorContextModelSnapshot : ModelSnapshot
+    [Migration("20190828161943_ChangeOneToMany")]
+    partial class ChangeOneToMany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,6 +185,8 @@ namespace Pollinator.Migrations
 
                     b.Property<string>("AnswerB");
 
+                    b.Property<int>("AuthorId");
+
                     b.Property<string>("QuestionText");
 
                     b.Property<string>("UserId");
@@ -203,13 +207,15 @@ namespace Pollinator.Migrations
 
                     b.Property<int>("QuizId");
 
-                    b.Property<string>("UserId");
+                    b.Property<int>("UserId");
+
+                    b.Property<string>("UserId1");
 
                     b.HasKey("ResponseId");
 
                     b.HasIndex("QuizId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId1");
 
                     b.ToTable("Responses");
                 });
@@ -275,7 +281,7 @@ namespace Pollinator.Migrations
 
                     b.HasOne("Pollinator.Models.ApplicationUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId1");
                 });
 #pragma warning restore 612, 618
         }

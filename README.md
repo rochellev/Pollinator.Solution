@@ -40,13 +40,14 @@ $ dotnet run
 * Poll results are shown graphically to make results more interesting.
 * Poll results cannot be altered by any user.
 
+## Data Relations
+* One-to-Many
+    * One quiz has many responses
 
 ## Things to Think about/do
 * a page to see All polls
     * right now it's just the current user's polls
-* Poll details page
-    * needs better styling
-    * add response info
+    * user can take poll on this page
 * Poll creation page
     * require all the fields, not sure if that is implemented right now
 * Response Index

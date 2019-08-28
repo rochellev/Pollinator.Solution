@@ -6,6 +6,20 @@
     <h1 class="display-4">Poll Answering Time!</h1>
 </div>
 
-@model Pollinator.Models.Quiz
+@using Pollinator.Models
+@model dynamic
 
-@Model.QuestionText 
+<div class="container">
+    <div class="card border-info mb-3" style="max-width: 18rem;">
+    <div class="card-header">@Model.Quiz.QuestionText</div>
+      <div class="card-body text-info">
+      <h5 class="card-title"></h5>
+      <div class="card-text">
+          <label for="AnswerA"></label>
+          <input id="AnswerA" name="AnswerChoice" type="radio" value="AnswerA" class="pollInput">
+          <label for="AnswerB"></label>
+          <input id="AnswerB" name="AnswerChoice" type="radio" value="AnswerB" class="pollInput">
+        <div>
+    </div>
+    </div>
+</div>
