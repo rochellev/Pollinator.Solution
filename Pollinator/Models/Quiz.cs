@@ -4,7 +4,6 @@ namespace Pollinator.Models
     public class Quiz
     {
         public int QuizId {get; set;}
-        public int AuthorId {get; set;}
         public string QuestionText {get;set;}
         public string AnswerA {get; set;}
         public string AnswerB {get; set;}
