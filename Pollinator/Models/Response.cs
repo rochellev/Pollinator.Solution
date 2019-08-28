@@ -8,5 +8,6 @@ namespace Pollinator.Models
         public string AnswerChoice {get;set;}
         public int UserId {get;set;}
         public ICollection<QuizResponse> Quizzes {get;set;}
+        public virtual ApplicationUser User{get; set;}
     }
 }

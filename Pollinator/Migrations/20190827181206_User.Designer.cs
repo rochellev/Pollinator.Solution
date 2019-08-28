@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pollinator.Models;
 
 namespace Pollinator.Migrations
 {
     [DbContext(typeof(PollinatorContext))]
-    partial class PollinatorContextModelSnapshot : ModelSnapshot
+    [Migration("20190827181206_User")]
+    partial class User
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -291,7 +293,7 @@ namespace Pollinator.Migrations
             modelBuilder.Entity("Pollinator.Models.QuizResponse", b =>
                 {
                     b.HasOne("Pollinator.Models.Quiz", "Quiz")
-                        .WithMany("Responses")
+                        .WithMany()
                         .HasForeignKey("QuizId")
                         .OnDelete(DeleteBehavior.Cascade);
 
