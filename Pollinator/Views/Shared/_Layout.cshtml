@@ -42,24 +42,24 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
             
-                        
+                       <div class="nav navbar-nav ml-auto  justify-content-end">
                         @if (User.Identity.IsAuthenticated)
-{
-                          <li class="nav-item w-100 text-right" id="nav-login">
+                        {
+                          <li class="nav-item" id="nav-login">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Index">@User.Identity.Name</a>
                         </li>
                         }
                         else
                         {
-                        <li class="nav-item w-100 text-right" id="nav-register">
+                        <li class="nav-item" id="nav-register">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
                         </li>
-                        <li class="nav-item w-150 text-right" id="nav-login">
+                        <li class="nav-item" id="nav-login">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                         </li>
                         }
-                        <li class="nav item"> 
-                        </li>
+                        </div>
+                    
                     </ul>
                 </div>
             </div>
@@ -74,7 +74,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2019 - Pollinator - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2019 - Pollinator - Developed by Rochelle Roberts, Maryana Antonyuk, and Lisa Jensen - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 
