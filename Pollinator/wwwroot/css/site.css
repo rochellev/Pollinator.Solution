@@ -89,6 +89,15 @@ opacity: 0.5;
    border: 2px, black;
  }
 
+ #about-button {
+   background-color: #a9d4e7;
+ }
+
+ #about-button:hover {
+   text-shadow: -1px 0 white, 0 -1px white;
+  opacity: 0.5;
+ }
+
 /* Poll creator form */
 .formAlign {
   text-align: center;
