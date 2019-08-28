@@ -29,6 +29,8 @@ $ dotnet run
 
 ## User Stories
 * There is only one site admin.
+* A user must register before logging in.
+* A user must log in before viewing polls.
 * The admin can view and modify any poll so that the site can be managed.
 * A registered user can create a new poll so other users can take it.
 * A registered user fills out a new poll form to create a poll.
@@ -45,3 +47,20 @@ $ dotnet run
 * Poll details page
     * needs better styling
     * add response info
+* Poll creation page
+    * require all the fields, not sure if that is implemented right now
+* Response Index
+    * not currently implemented (tuesday)
+    * could be a user's history of their poll answers
+    * only see their responses
+    * admin see all users responses
+* Response Creation
+    * think
+* Hosting ;)
+* About us page
+    * link in navbar
+* Login
+  * error messages -- need to register before logging in, failed password, username taken
+  * Add user name to navbar
+    * have logout option visible -- navbar? hover action?
+    * maybe "manage account page" 
