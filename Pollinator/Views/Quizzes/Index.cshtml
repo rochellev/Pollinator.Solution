@@ -11,7 +11,7 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Active Poll</h1>
+    <h1 class="display-4">Active Polls</h1>
 </div>
 
 @using Pollinator.Models
@@ -83,11 +83,11 @@
       <div class="card-body text-info d-flex align-items-center">
       <div id="answers-card" class="card-text text-center">
           <label for="AnswerA">@quiz.AnswerA</label>
-          <input id="AnswerA" name="AnswerChoice" type="radio" value="AnswerA" class="pollInput">
-          <br>
+          <input id="AnswerA" name="AnswerChoice" type="radio" value="AnswerA" class="pollInput"> 
           <label for="AnswerB">@quiz.AnswerB</label>
           <input id="AnswerB" name="AnswerChoice" type="radio" value="AnswerB" class="pollInput">
-          <br>
+          <label for="AnswerC">@quiz.AnswerC</label>
+          <input id="AnswerC" name="AnswerChoice" type="radio" value="AnswerC" class="pollInput">
          <input type="submit" value="submit">
     </div>
     </div>
@@ -109,11 +109,31 @@
 
 
     }
+    int A_count = 0;
+    int B_count = 0;
+    int C_count = 0;
+    @foreach(Response response in Model.Responses)
+    {
+        @if(@response.QuizId == @quiz.QuizId)
+        {
+            @if(@response.AnswerChoice == "AnswerA")
+            {
+                A_count++;
+            }
+            @if(@response.AnswerChoice == "AnswerB")
+            {
+                B_count++;
+            }
+            @if(@response.AnswerChoice == "AnswerC")
+            {
+                C_count++;
+            }
+        }
+    }
+    <div>
+            A_count is @A_count, B_count is @B_count and C_count is @C_count
+     </div>   
 }
- 
-
-
-<p>@Html.ActionLink("Create a quiz", "Create")</p>
 
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
 

@@ -6,17 +6,17 @@ namespace Pollinator.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Responses_AspNetUsers_UserId1",
-                table: "Responses");
+            // migrationBuilder.DropForeignKey(
+            //     name: "FK_Responses_AspNetUsers_UserId1",
+            //     table: "Responses");
 
-            migrationBuilder.DropIndex(
-                name: "IX_Responses_UserId1",
-                table: "Responses");
+            // migrationBuilder.DropIndex(
+            //     name: "IX_Responses_UserId1",
+            //     table: "Responses");
 
-            migrationBuilder.DropColumn(
-                name: "UserId1",
-                table: "Responses");
+            // migrationBuilder.DropColumn(
+            //     name: "UserId1",
+            //     table: "Responses");
 
             migrationBuilder.AlterColumn<string>(
                 name: "UserId",
