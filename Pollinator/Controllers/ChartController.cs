@@ -19,8 +19,8 @@ namespace Pollinator.Controllers
         public ActionResult Chart()
         {
             List<DataPoint> dataPoints = new List<DataPoint>{
-                new DataPoint(10, 20),
-                new DataPoint(20, 70),
+                new DataPoint(10, 25),
+                new DataPoint(20, 75),
                 // new DataPoint(30, 10),
 
             };

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Dynamic;
+using Newtonsoft.Json;
 using Pollinator.Models;
 
 
@@ -28,11 +29,21 @@ namespace Pollinator.Controllers
             var currentUser = await GetApplicationUser();
             dynamic myModel = new ExpandoObject();
             myModel.Quizzes = _db.Quizzes;
-            myModel.Responses = _db.Responses;
-            return View (myModel);
+            myModel.Responses = _db.Responses.ToList();
+
+            List<DataPoint> dataPoints = new List<DataPoint>{
+                new DataPoint(10, 25),
+                new DataPoint(20, 75),
+                new DataPoint(30, 10),    
+
+            };
+
+            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
+
+            return View(myModel);
         }
 
-        public  ActionResult Create()
+        public ActionResult Create()
         {
             return View();
         }
@@ -84,9 +95,10 @@ namespace Pollinator.Controllers
         }
         private async Task<ApplicationUser> GetApplicationUser()
         {
-            var userId = this.User.FindFirst (ClaimTypes.NameIdentifier)?.Value;
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var currentUser = await _userManager.FindByIdAsync(userId);
             return currentUser;
         }
+
     }
 }
