@@ -21,7 +21,7 @@
       <h5 class="card-title"></h5>
       <div class="card-text">
           <label for="AnswerA">@quiz.AnswerA</label>
-          <input id="AnswerA" name="AnswerChoice" type="radio" value="AnswerA" class="pollInput">
+          <input id="AnswerA" name="AnswerChoice" type="radio" value="AnswerA" class="pollInput"> 
           <label for="AnswerB">@quiz.AnswerB</label>
           <input id="AnswerB" name="AnswerChoice" type="radio" value="AnswerB" class="pollInput">
          <input type="submit" value="submit">
@@ -29,14 +29,25 @@
     </div>
     </div>
     }
-
-    
+    int A_count = 0;
+    int B_count = 0;
+    @foreach(Response response in Model.Responses)
+    {
+        @if(@response.QuizId == @quiz.QuizId)
+        {
+            @if(@response.AnswerChoice == "AnswerA")
+            {
+                A_count++;
+            }
+            @if(@response.AnswerChoice == "AnswerB")
+            {
+                B_count++;
+            }
+        }
+    }
+    <div>
+            A_count is @A_count and B_count is @B_count
+     </div>   
 }
 
-@foreach(){}
- 
-
-
 <p>@Html.ActionLink("Create a quiz", "Create")</p>
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p>

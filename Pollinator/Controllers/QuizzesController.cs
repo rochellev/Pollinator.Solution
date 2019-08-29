@@ -28,7 +28,7 @@ namespace Pollinator.Controllers
             var currentUser = await GetApplicationUser();
             dynamic myModel = new ExpandoObject();
             myModel.Quizzes = _db.Quizzes;
-            myModel.Responses = _db.Responses.ToList();
+            myModel.Responses = _db.Responses;
             return View (myModel);
         }
 
