@@ -29,7 +29,7 @@
 
                 ]);
 
-            var chart = new CanvasJS.Chart("chartContainer", {
+            var chart = new CanvasJS.Chart("${chartId"}, {
                 backgroundColor: "white",
                 colorSet:  "customColorSet",
                 height: 160,
@@ -70,8 +70,12 @@
 <body>
     @* ----------Cards for each Quiz and Result--------------*@
 <div class="container">
+@{int QuizCount = 0;}
 @foreach (Quiz quiz in Model.Quizzes)
 {
+    QuizCount++;
+    string chartId = "chartContainer" + QuizCount;
+    
     @using (Html.BeginForm("Create", "Responses", FormMethod.Post))
     {
     <div class="container">
@@ -84,10 +88,13 @@
       <div id="answers-card" class="card-text text-center">
           <label for="AnswerA">@quiz.AnswerA</label>
           <input id="AnswerA" name="AnswerChoice" type="radio" value="AnswerA" class="pollInput"> 
+          <br>
           <label for="AnswerB">@quiz.AnswerB</label>
           <input id="AnswerB" name="AnswerChoice" type="radio" value="AnswerB" class="pollInput">
+          <br>
           <label for="AnswerC">@quiz.AnswerC</label>
           <input id="AnswerC" name="AnswerChoice" type="radio" value="AnswerC" class="pollInput">
+          <br>
          <input type="submit" value="submit">
     </div>
     </div>
@@ -97,7 +104,8 @@
         <div id="chart-card" class="card border-info mb-3">
     <div class="card-header">Poll Results</div>
       <div class="card-body text-info">
-        <div id="chartContainer">
+          
+        <div id="${chartId}">
     </div> 
 </div>
     </div>
@@ -105,7 +113,7 @@
     </div>
     </div>
     
-    
+    <p>@chartId</p>
 
 
     }
