@@ -16,8 +16,9 @@
 
 @using Pollinator.Models
 @model dynamic
+
 @* --------------Chart Script------------------*@
-<script type="text/javascript">
+@*<script type="text/javascript">
         window.onload = function () {
 
              CanvasJS.addColorSet("customColorSet",
@@ -29,7 +30,7 @@
 
                 ]);
 
-            var chart = new CanvasJS.Chart("chartContainer", {
+            var chart = new CanvasJS.Chart("{chartId"}, {
                 backgroundColor: "white",
                 colorSet:  "customColorSet",
                 height: 160,
@@ -63,15 +64,22 @@
             });
             chart.render();
         };
-    </script>
+    </script>*@
     @* --------------End of Chart Script------------------*@
 </head>
 
 <body>
     @* ----------Cards for each Quiz and Result--------------*@
 <div class="container">
+@{int QuizCount = 0;}
+
 @foreach (Quiz quiz in Model.Quizzes)
 {
+    QuizCount++;
+    string chartId = "chartContainer" + QuizCount;
+    int A_count = 0;
+    int B_count = 0;
+    int C_count = 0;
     @using (Html.BeginForm("Create", "Responses", FormMethod.Post))
     {
     <div class="container">
@@ -80,39 +88,25 @@
     <input type="hidden" name="QuizId" value="@quiz.QuizId">
     <div id="chart-card" class="card border-info mb-3" style="max-width: 18rem;">
     <div class="card-header">@quiz.QuestionText</div>
-      <div class="card-body text-info d-flex align-items-center">
+      <div class="card-body text-info d-flex justify-content-center align-items-center">
       <div id="answers-card" class="card-text text-center">
           <label for="AnswerA">@quiz.AnswerA</label>
           <input id="AnswerA" name="AnswerChoice" type="radio" value="AnswerA" class="pollInput"> 
+          <br>
           <label for="AnswerB">@quiz.AnswerB</label>
           <input id="AnswerB" name="AnswerChoice" type="radio" value="AnswerB" class="pollInput">
+          <br>
           <label for="AnswerC">@quiz.AnswerC</label>
           <input id="AnswerC" name="AnswerChoice" type="radio" value="AnswerC" class="pollInput">
+          <br>
          <input type="submit" value="submit">
     </div>
     </div>
     </div>
     </div>
-    <div class="col-md justify-content-center">
-        <div id="chart-card" class="card border-info mb-3">
-    <div class="card-header">Poll Results</div>
-      <div class="card-body text-info">
-        <div id="chartContainer">
-    </div> 
-</div>
-    </div>
-    </div>
-    </div>
-    </div>
+   
     
-    
-
-
-    }
-    int A_count = 0;
-    int B_count = 0;
-    int C_count = 0;
-    @foreach(Response response in Model.Responses)
+@foreach(Response response in Model.Responses)
     {
         @if(@response.QuizId == @quiz.QuizId)
         {
@@ -130,12 +124,40 @@
             }
         }
     }
-    <div>
-            A_count is @A_count, B_count is @B_count and C_count is @C_count
-     </div>   
+  
+
+ <div class="col-md justify-content-center">
+        <div id="chart-card" class="card border-info mb-3">
+    <div class="card-header">Poll Results</div>
+      <div class="card-body text-info justify-content-center">
+    @quiz.AnswerA<div class="progress">
+  <div id="AnswerA-bar" class="progress-bar" role="progressbar" style="width: @A_count%" aria-valuenow="@A_count" aria-valuemin="0" aria-valuemax="@A_count"></div>
+  @A_count votes
+</div>
+
+<br>
+@quiz.AnswerB<div class="progress progress-bar-custom">
+  <div id="AnswerB-bar"  class="progress-bar" role="progressbar" style="width: @B_count%" aria-valuenow="@B_count" aria-valuemin="0" aria-valuemax="@B_count"></div>
+  @B_count votes
+</div>
+
+<br>
+@quiz.AnswerC<div class="progress progress-bar-custom">
+  <div id="AnswerC-bar" class="progress-bar" role="progressbar" style="width: @C_count%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="@C_count" ></div>
+  @C_count votes
+</div> 
+        @*<div id="${chartId}">
+    </div>*@ 
+</div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    }
+    
 }
 
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
 
 </body>
 </html>
