@@ -3,7 +3,7 @@
 ----
 
 ## Description
-* Pollinator is a Web App allowing users to create and take polls. [Pollinator](http://ec2-18-216-22-80.us-east-2.compute.amazonaws.com:5000/)
+* Pollinator is a Web App allowing users to create and take polls. [Pollinator Link](http://ec2-18-216-22-80.us-east-2.compute.amazonaws.com:5000/)
 
 ## Technologies Used
 * C#
@@ -37,8 +37,3 @@ $ dotnet run
 * Any user can view the results of a poll so they can know how the poll turned out.
 * Poll results are shown graphically to make results more interesting.
 * Poll results cannot be altered by any user.
-
-## Data Relations
-* One-to-Many
-    * One quiz has many responses
-    * MySQL
