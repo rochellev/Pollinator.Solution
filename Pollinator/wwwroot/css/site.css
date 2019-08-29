@@ -100,6 +100,15 @@ h3#home-intro {
 text-shadow: -1px 0 white, 0 -1px white;
 opacity: 0.5;
  }
+ 
+ /* Quiz-Chart Cards */
+
+#chart-card {
+  height: 250px;
+  width: 400px;
+  align-content: center;
+}
+
 
  /* About Developers */
 
