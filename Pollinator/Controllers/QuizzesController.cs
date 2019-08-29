@@ -34,7 +34,7 @@ namespace Pollinator.Controllers
             List<DataPoint> dataPoints = new List<DataPoint>{
                 new DataPoint(10, 25),
                 new DataPoint(20, 75),
-                // new DataPoint(30, 10),    ----3rd data point
+                new DataPoint(30, 10),    
 
             };
 
