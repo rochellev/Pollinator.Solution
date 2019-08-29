@@ -16,40 +16,8 @@
 
 @using Pollinator.Models
 @model dynamic
-</head>
-
-<body>
-<div class="container">
-@foreach (Quiz quiz in Model.Quizzes)
-{
-    @using (Html.BeginForm("Create", "Responses", FormMethod.Post))
-    {
-    <div class="container">
-  <div class="row justify-content-center">
-   <div class="col-md">
-    <input type="hidden" name="QuizId" value="@quiz.QuizId">
-    <div id="chart-card" class="card border-info mb-3" style="max-width: 18rem;">
-    <div class="card-header">@quiz.QuestionText</div>
-      <div class="card-body text-info justify-content-center">
-      <h5 class="card-title"></h5>
-      <div class="card-text">
-          <label for="AnswerA">@quiz.AnswerA</label>
-          <input id="AnswerA" name="AnswerChoice" type="radio" value="AnswerA" class="pollInput">
-          <label for="AnswerB">@quiz.AnswerB</label>
-          <input id="AnswerB" name="AnswerChoice" type="radio" value="AnswerB" class="pollInput">
-         <input type="submit" value="submit">
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="col-md">
-        <div id="chart-card" class="card border-info mb-3">
-    <div class="card-header">Poll Results</div>
-      <div class="card-body text-info">
-        <div id="chartContainer">
-    </div>
-   
-     <script type="text/javascript">
+@* --------------Chart Script------------------*@
+<script type="text/javascript">
         window.onload = function () {
 
              CanvasJS.addColorSet("customColorSet",
@@ -66,12 +34,12 @@
                 colorSet:  "customColorSet",
                 height: 160,
                 title: {
-                    text: "Poll Results",
+                
                     fontFamily: "Varela Round"
                 },
                 animationEnabled: true,
                 legend: {
-                    fontSize: 20,
+                    fontSize: 15,
                     fontFamily: "Varela Round"
                 },
                 theme: "light2",
@@ -79,7 +47,7 @@
                 {
                     type: "doughnut",
                     indexLabelFontFamily: "Varela Round",
-                    indexLabelFontSize: 20,
+                    indexLabelFontSize: 18,
                     indexLabel: "{label} {y}%",
                     startAngle: -20,
                     showInLegend: true,
@@ -96,6 +64,41 @@
             chart.render();
         };
     </script>
+    @* --------------End of Chart Script------------------*@
+</head>
+
+<body>
+    @* ----------Cards for each Quiz and Result--------------*@
+<div class="container">
+@foreach (Quiz quiz in Model.Quizzes)
+{
+    @using (Html.BeginForm("Create", "Responses", FormMethod.Post))
+    {
+    <div class="container">
+  <div class="row justify-content-center">
+   <div class="col-md justify-content-center">
+    <input type="hidden" name="QuizId" value="@quiz.QuizId">
+    <div id="chart-card" class="card border-info mb-3" style="max-width: 18rem;">
+    <div class="card-header">@quiz.QuestionText</div>
+      <div class="card-body text-info d-flex align-items-center">
+      <div id="answers-card" class="card-text text-center">
+          <label for="AnswerA">@quiz.AnswerA</label>
+          <input id="AnswerA" name="AnswerChoice" type="radio" value="AnswerA" class="pollInput">
+          <br>
+          <label for="AnswerB">@quiz.AnswerB</label>
+          <input id="AnswerB" name="AnswerChoice" type="radio" value="AnswerB" class="pollInput">
+          <br>
+         <input type="submit" value="submit">
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-md justify-content-center">
+        <div id="chart-card" class="card border-info mb-3">
+    <div class="card-header">Poll Results</div>
+      <div class="card-body text-info">
+        <div id="chartContainer">
+    </div> 
 </div>
     </div>
     </div>
