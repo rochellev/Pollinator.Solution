@@ -17,11 +17,8 @@
 @using Pollinator.Models
 @model dynamic
 
-@* --------------Progress Bar Script------------------*@
-
-@* --------------End of Progress Bar Script------------------*@ 
 @* --------------Chart Script------------------*@
-<script type="text/javascript">
+@*<script type="text/javascript">
         window.onload = function () {
 
              CanvasJS.addColorSet("customColorSet",
@@ -67,7 +64,7 @@
             });
             chart.render();
         };
-    </script>
+    </script>*@
     @* --------------End of Chart Script------------------*@
 </head>
 
@@ -91,7 +88,7 @@
     <input type="hidden" name="QuizId" value="@quiz.QuizId">
     <div id="chart-card" class="card border-info mb-3" style="max-width: 18rem;">
     <div class="card-header">@quiz.QuestionText</div>
-      <div class="card-body text-info d-flex align-items-center">
+      <div class="card-body text-info d-flex justify-content-center align-items-center">
       <div id="answers-card" class="card-text text-center">
           <label for="AnswerA">@quiz.AnswerA</label>
           <input id="AnswerA" name="AnswerChoice" type="radio" value="AnswerA" class="pollInput"> 
@@ -133,20 +130,22 @@
         <div id="chart-card" class="card border-info mb-3">
     <div class="card-header">Poll Results</div>
       <div class="card-body text-info justify-content-center">
-          <div class="progress">
+    @quiz.AnswerA<div class="progress">
   <div id="AnswerA-bar" class="progress-bar" role="progressbar" style="width: @A_count%" aria-valuenow="@A_count" aria-valuemin="0" aria-valuemax="@A_count"></div>
+  @A_count votes
 </div>
+
 <br>
-<div class="progress progress-bar-custom">
+@quiz.AnswerB<div class="progress progress-bar-custom">
   <div id="AnswerB-bar"  class="progress-bar" role="progressbar" style="width: @B_count%" aria-valuenow="@B_count" aria-valuemin="0" aria-valuemax="@B_count"></div>
+  @B_count votes
 </div>
+
 <br>
-<div class="progress progress-bar-custom">
+@quiz.AnswerC<div class="progress progress-bar-custom">
   <div id="AnswerC-bar" class="progress-bar" role="progressbar" style="width: @C_count%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="@C_count" ></div>
-</div>
-<div>
-            A_count is @A_count, B_count is @B_count and C_count is @C_count;
-     </div>   
+  @C_count votes
+</div> 
         @*<div id="${chartId}">
     </div>*@ 
 </div>
@@ -159,7 +158,6 @@
     
 }
 
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
 
 </body>
 </html>
