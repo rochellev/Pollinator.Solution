@@ -34,6 +34,6 @@ $ dotnet run
 * A user must log in before viewing polls.
 * A registered user can create a new poll so other users can take it.
 * A registered user fills out a new poll form to create a poll.
-* Any user can view the results of a poll so they can know how the poll turned out.
+* A registered user can view the results of a poll so they can know how the poll turned out.
 * Poll results are shown graphically to make results more interesting.
-* Poll results cannot be altered by any user.
+* Poll results cannot be edited by any user.
