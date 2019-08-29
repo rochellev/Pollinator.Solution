@@ -3,7 +3,7 @@
 ----
 
 ## Description
-* Pollinator is a Web App allowing users to create and take polls. [Pollinator](http://ec2-18-216-22-80.us-east-2.compute.amazonaws.com:5000/)
+* Pollinator is a Web App allowing users to create and take polls. [Pollinator Link](http://ec2-18-216-22-80.us-east-2.compute.amazonaws.com:5000/)
 
 ## Technologies Used
 * C#
