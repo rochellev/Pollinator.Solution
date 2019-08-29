@@ -37,8 +37,3 @@ $ dotnet run
 * Any user can view the results of a poll so they can know how the poll turned out.
 * Poll results are shown graphically to make results more interesting.
 * Poll results cannot be altered by any user.
-
-## Data Relations
-* One-to-Many
-    * One quiz has many responses
-    * MySQL
