@@ -31,15 +31,6 @@ namespace Pollinator.Controllers
             myModel.Quizzes = _db.Quizzes;
             myModel.Responses = _db.Responses.ToList();
 
-            List<DataPoint> dataPoints = new List<DataPoint>{
-                new DataPoint(10, 25),
-                new DataPoint(20, 75),
-                new DataPoint(30, 10),    
-
-            };
-
-            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
-
             return View(myModel);
         }
 

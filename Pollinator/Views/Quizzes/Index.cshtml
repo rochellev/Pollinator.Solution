@@ -17,55 +17,7 @@
 @using Pollinator.Models
 @model dynamic
 
-@* --------------Chart Script------------------*@
-@*<script type="text/javascript">
-        window.onload = function () {
 
-             CanvasJS.addColorSet("customColorSet",
-                [//colorSet Array
-
-                "#000000",
-                "#f7e757",
-                "#f2b416", 
-
-                ]);
-
-            var chart = new CanvasJS.Chart("{chartId"}, {
-                backgroundColor: "white",
-                colorSet:  "customColorSet",
-                height: 160,
-                title: {
-                
-                    fontFamily: "Varela Round"
-                },
-                animationEnabled: true,
-                legend: {
-                    fontSize: 15,
-                    fontFamily: "Varela Round"
-                },
-                theme: "light2",
-                data: [
-                {
-                    type: "doughnut",
-                    indexLabelFontFamily: "Varela Round",
-                    indexLabelFontSize: 18,
-                    indexLabel: "{label} {y}%",
-                    startAngle: -20,
-                    showInLegend: true,
-                    toolTipContent: "{legendText} {y}%",
-                    dataPoints: [
-                        { y: 75, legendText: "Answer A", label: "Answer A" },
-                        { y: 25, legendText: "Answer B", label: "Answer B" }
-                    ],
- 
-                    dataPoints: @Html.Raw(ViewBag.DataPoints)
-                }
-                ]
-            });
-            chart.render();
-        };
-    </script>*@
-    @* --------------End of Chart Script------------------*@
 </head>
 
 <body>
