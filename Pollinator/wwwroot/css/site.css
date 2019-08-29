@@ -106,7 +106,9 @@ opacity: 0.5;
 #chart-card {
   height: 250px;
   width: 400px;
+  text-align: center;
   align-content: center;
+  float: center;
 }
 
 #answers-card {
@@ -120,6 +122,19 @@ opacity: 0.5;
   background-color: #a9d4e7;
 }
 
+#AnswerA-bar {
+background: #000000;
+}
+
+#AnswerB-bar {
+background-color: #f7e757;
+}
+
+#AnswerC-bar {
+background-color: #f2b416;
+}
+
+.progress {background: rgba(235, 235, 235, 1); border: 0px solid rgba(245, 245, 245, 1); border-radius: 4px; height: 20px;}
 
  /* About Developers */
 

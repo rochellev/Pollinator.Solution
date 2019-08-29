@@ -37,7 +37,6 @@ namespace Pollinator.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(Response response)
         {
-            Console.WriteLine("hitting create response method");
             var currentUser = await GetApplicationUser();
             response.User = currentUser;
             _db.Responses.Add(response);
